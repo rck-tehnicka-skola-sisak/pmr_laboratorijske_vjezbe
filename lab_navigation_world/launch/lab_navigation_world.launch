@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="yaw" default="0"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find lab_navigation_world)/world/lab_navigation.world"/>
+  </include>
+
+  <include file="$(find lab_diff_robot)/launch/spawn.launch">
+    <arg name="x" value="$(arg x)"/>
+    <arg name="y" value="$(arg y)"/>
+    <arg name="yaw" value="$(arg yaw)"/>
+  </include>
+
+</launch>
+
