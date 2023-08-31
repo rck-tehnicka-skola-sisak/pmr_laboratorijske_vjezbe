@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>obstacle_world</name>
+  <version>1.0.0</version>
+  <description>The obstacle world package</description>
+
+  <maintainer email="kresimir.turkovic@romb-technologies.hr">Kresimir Turkovic</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>gezebo_ros</exec_depend>
+</package>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find lab_diff_robot)/launch/spawn.launch"/>
+
+  <include file="$(find obstacle_world)/launch/obstacle_world.launch"/>
+
+  <include file="$(find obstacle_detection)/launch/obstacle_detection.launch"/>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find obstacle_detection)/rviz/obstacle_detection.rviz"/>>
+</launch>
