@@ -197,7 +197,7 @@
         </range>
       </ray>
       <plugin name="gazebo_ros_laser" filename="libgazebo_ros_laser.so">
-        <topicName>/laser/scan</topicName>
+        <topicName>/laser_sensor/scan</topicName>
         <frameName>laser</frameName>
       </plugin>
     </sensor>
