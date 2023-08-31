@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+
+<robot name="robot">
+  <link name="base_link"/>
+
+  <link name="box_link">
+    <inertial>
+      <mass value="5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.09" ixy="0" ixz="0" iyy="0.15" iyz="0" izz="0.14"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.5 0.3 0.35"/>
+        </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.3 0.35"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_link_to_box_link" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.1 0 0.25"/>
+    <parent link="base_link"/>
+    <child link="box_link"/>
+  </joint>
+
+  <link name="right_wheel">
+    <inertial>
+      <mass value="5"/>
+      <origin rpy="-1.57079635 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.06"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.57079635 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.15"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.57079635 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.15"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="box_link_to_right_wheel" type="continuous">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="0.1 -0.18 -0.1"/>
+    <parent link="box_link"/>
+    <child link="right_wheel"/>
+  </joint>
+
+  <transmission name="box_link_to_right_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="box_link_to_right_wheel">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_wheel_motor">
+      <mechanicalReduction>-1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo reference="right_wheel">
+    <mu1>0.5</mu1>
+    <mu2>50.0</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+    </plugin>
+  </gazebo>
+</robot>
+

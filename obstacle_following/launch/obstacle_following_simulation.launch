@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find obstacle_world)/launch/obstacle_following_world.launch"/>
+
+  <include file="$(find lab_diff_robot)/launch/spawn.launch"/>
+
+  <include file="$(find obstacle_following)/launch/obstacle_following.launch"/>
+</launch>

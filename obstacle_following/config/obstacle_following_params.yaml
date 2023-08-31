@@ -1,0 +1,9 @@
+max_obstacle_distance: 3.0 # [m]
+obstacle_size: 0.2 # [m]
+max_obstacle_size_tolerance: 0.15 # [m]
+
+angle_tolerance: 0.175 # [rad], 10°
+follow_distance: 0.5 # [m]
+
+angular_speed: 0.3 # [rad/s]
+linear_speed: 0.5 # [m/s]

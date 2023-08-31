@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find obstacle_detection)/launch/obstacle_detection.launch"/>
+
+  <node name="obstacle_following" pkg="obstacle_following" type="obstacle_following_node.py" output="screen">
+    <rosparam file="$(find obstacle_following)/config/obstacle_following_params.yaml" command="load"/>
+    <remap from="cmd_vel" to="lab_diff_drive/cmd_vel"/>
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find obstacle_following)/rviz/obstacle_following.rviz"/>
+</launch>
