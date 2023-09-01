@@ -4,7 +4,7 @@
     <rosparam file="$(find lab_bug)/config/lab_bug_params.yaml" command="load"/>
     <remap from="cmd_vel" to="lab_diff_drive/cmd_vel"/>
     <remap from="odom" to="lab_diff_drive/odom"/>
-    <remap from="scan" to="laser/scan"/>
+    <remap from="scan" to="laser_sensor/scan"/>
     <remap from="goal" to="goal_point"/>
   </node>
 

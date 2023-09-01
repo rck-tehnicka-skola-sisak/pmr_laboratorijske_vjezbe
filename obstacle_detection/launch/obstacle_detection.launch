@@ -2,6 +2,6 @@
 <launch>
   <node name="obstacle_detection" pkg="obstacle_detection" type="obstacle_detection_node.py">
     <rosparam file="$(find obstacle_detection)/config/obstacle_detection_params.yaml" command="load"/>
-    <remap from="scan" to="laser/scan"/>
+    <remap from="scan" to="laser_sensor/scan"/>
   </node>
 </launch>
